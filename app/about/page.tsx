@@ -3,7 +3,7 @@
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { motion } from "framer-motion";
-import { Target, Users, Globe, Award, Sparkles, Check } from "lucide-react";
+import { Target, Users, Globe, Award, Sparkles, Check, ArrowRight, GraduationCap, Store } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export default function AboutPage() {
@@ -75,17 +75,17 @@ export default function AboutPage() {
                                 </div>
                             </div>
                             <div className="relative">
-                                <div className="relative z-10 bg-background-light dark:bg-[#150b18] p-8 rounded-[3rem] border border-gray-100 dark:border-gray-800 shadow-2xl">
+                                <div className="relative z-10 bg-background-light dark:bg-[#150b18] p-8 rounded-xl border border-gray-100 dark:border-gray-800 ">
                                     <div className="grid grid-cols-2 gap-4">
-                                        <div className="bg-white dark:bg-[#251b28] p-6 rounded-2xl shadow-sm">
+                                        <div className="bg-white dark:bg-[#251b28] p-6 rounded-lg">
                                             <h4 className="text-4xl font-extrabold text-primary mb-2">58%</h4>
                                             <p className="text-sm font-medium text-gray-500 dark:text-gray-400">Of Africa's self-employed population are women</p>
                                         </div>
-                                        <div className="bg-white dark:bg-[#251b28] p-6 rounded-2xl shadow-sm">
+                                        <div className="bg-white dark:bg-[#251b28] p-6 rounded-lg">
                                             <h4 className="text-4xl font-extrabold text-navy dark:text-white mb-2">82%</h4>
                                             <p className="text-sm font-medium text-gray-500 dark:text-gray-400">Of businesses in Ghana's informal sector owned by women</p>
                                         </div>
-                                        <div className="bg-white dark:bg-[#251b28] p-6 rounded-2xl shadow-sm col-span-2">
+                                        <div className="bg-white dark:bg-[#251b28] p-6 rounded-lg col-span-2">
                                             <h4 className="text-4xl font-extrabold text-green-500 mb-2">1000+</h4>
                                             <p className="text-sm font-medium text-gray-500 dark:text-gray-400">Micro-enterprises to be supported across Africa</p>
                                         </div>
@@ -116,7 +116,7 @@ export default function AboutPage() {
                             <motion.div
                                 key={i}
                                 whileHover={{ y: -5 }}
-                                className="bg-white dark:bg-[#1f1222] p-8 rounded-3xl shadow-lg border border-gray-100 dark:border-gray-800"
+                                className="bg-white dark:bg-[#1f1222] p-8 rounded-2xl  border border-gray-200 dark:border-gray-800"
                             >
                                 <div className="size-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary mb-6">
                                     <item.icon className="w-6 h-6" />
@@ -134,12 +134,12 @@ export default function AboutPage() {
                 <section className="py-24">
                     <div className="max-w-4xl mx-auto px-4 text-center">
                         <h2 className="text-3xl font-bold text-navy dark:text-white mb-12">Our 5-Year Vision</h2>
-                        <div className="space-y-6 text-left bg-white dark:bg-[#1f1222] p-8 sm:p-12 rounded-[2rem] shadow-xl border border-gray-100 dark:border-gray-800">
+                        <div className="space-y-6 text-left bg-white dark:bg-[#1f1222] p-8 sm:p-12 rounded-3xl border border-gray-200 dark:border-gray-800">
                             <p className="text-lg text-slate-600 dark:text-slate-300">
                                 <span className="font-bold text-primary text-2xl mr-2">1.</span>
                                 Reaching over <strong>500,000 users</strong> across multiple African countries.
                             </p>
-                            <div className="h-px bg-gray-100 dark:bg-gray-800"></div>
+                            <div className="h-px bg-gray-200 dark:bg-gray-800"></div>
                             <p className="text-lg text-slate-600 dark:text-slate-300">
                                 <span className="font-bold text-primary text-2xl mr-2">2.</span>
                                 Partnering with major educational institutions, NGOs, and government bodies.
@@ -154,17 +154,66 @@ export default function AboutPage() {
                 </section>
 
                 {/* Call to Action */}
-                <section className="py-24 bg-primary relative overflow-hidden text-white text-center">
+                <section className="py-24 bg-navy relative overflow-hidden text-white text-center">
                     <div className="absolute inset-0 opacity-20 bg-[url('/images/pattern.svg')]"></div>
-                    <div className="max-w-3xl mx-auto px-4 relative z-10">
+
+                    <div className="max-w-6xl mx-auto px-4 relative z-10 text-center">
                         <h2 className="text-3xl md:text-5xl font-bold mb-6">Unleash Your Potential</h2>
-                        <p className="text-lg md:text-xl text-white/90 mb-10 max-w-2xl mx-auto">
+                        <p className="text-lg md:text-xl text-white/90 mb-12 max-w-2xl mx-auto">
                             Join thousands of African women who are already building the future.
                             Get full access to Ndiara tools today.
                         </p>
-                        <Button asChild variant="secondary" className="h-14 px-10 text-lg font-bold rounded-full bg-white text-primary hover:bg-gray-50 shadow-2xl">
-                            <a href="https://accounts.paahibuspace.org">Start Your Free Trial</a>
-                        </Button>
+
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-left">
+                            {[
+                                {
+                                    title: "Sell Online",
+                                    description: "Create your online store in minutes.",
+                                    icon: Store,
+                                    href: "https://ecommerce.paahibuspace.org",
+                                    color: "text-primary",
+                                    bg: "bg-orange-50",
+                                    button_text: "Sign Up",
+                                },
+                                {
+                                    title: "Join Community",
+                                    description: "Connect with fellow entrepreneurs.",
+                                    icon: Users,
+                                    href: "https://community.paahibuspace.org",
+                                    color: "text-blue-600",
+                                    bg: "bg-blue-50",
+                                    button_text: "Join Now",
+                                },
+                                {
+                                    title: "Ndiara Academy",
+                                    description: "Master new skills with expert courses.",
+                                    icon: GraduationCap,
+                                    href: "https://academy.paahibuspace.org",
+                                    color: "text-purple-600",
+                                    bg: "bg-purple-50",
+                                    button_text: "Learn More",
+                                }
+                            ].map((card, i) => (
+                                <div key={i} className="bg-white p-8 rounded-2xl shadow-xl border border-white/20 flex flex-col items-center text-center">
+                                    <div className={`w-16 h-16 rounded-2xl ${card.bg} ${card.color} flex items-center justify-center mb-6`}>
+                                        <card.icon className="w-8 h-8" />
+                                    </div>
+                                    <h3 className="text-xl font-bold text-navy mb-3">{card.title}</h3>
+                                    <p className="text-slate-500 mb-8 leading-relaxed">
+                                        {card.description}
+                                    </p>
+                                    <Button
+                                        asChild
+                                        className={`w-full rounded-full font-bold h-12 ${i === 0 ? "" : `${card.bg} ${card.color} hover:opacity-80 border-0`}`}
+                                        variant={i === 0 ? "default" : "secondary"}
+                                    >
+                                        <a href={card.href} className="flex items-center justify-center gap-2">
+                                            {card.button_text} <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                                        </a>
+                                    </Button>
+                                </div>
+                            ))}
+                        </div>
                     </div>
                 </section>
 

@@ -283,9 +283,9 @@ export function Header() {
 
                     {/* Auth Buttons */}
                     <div className="hidden lg:flex items-center gap-4">
-                        <Button variant="cream" className="text-navy font-bold">Log In</Button>
+                        {/* <Button variant="cream" className="text-navy font-bold">Log In</Button> */}
                         <Button asChild className="font-bold shadow-lg shadow-primary/20">
-                            <Link href="https://accounts.paahibuspace.org">
+                            <Link href="">
                                 Get Started
                             </Link>
                         </Button>
