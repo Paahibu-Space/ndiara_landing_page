@@ -262,7 +262,7 @@ export function Header() {
                                                             Connect with over 10,000 African women entrepreneurs growing together.
                                                         </p>
                                                         <Button asChild variant="outline" className="w-full bg-white border-indigo-200 text-indigo-700 hover:bg-indigo-50">
-                                                            <Link href="https://community.paahibuspace.org">
+                                                            <Link href="https://community.paahibuspace.org" target="_blank" rel="noopener noreferrer">
                                                                 Join Community
                                                             </Link>
                                                         </Button>
@@ -313,16 +313,16 @@ export function Header() {
                         <div className="p-4 flex flex-col gap-4">
                             <div className="space-y-4">
                                 <div className="font-bold text-navy px-2 py-2 border-b">Business Solutions</div>
-                                <Link href="https://ecommerce.paahibuspace.org" className="block px-4 py-2 hover:bg-gray-50 rounded-lg text-sm">Ndiara E-commerce</Link>
-                                <Link href="https://pos.paahibuspace.org" className="block px-4 py-2 hover:bg-gray-50 rounded-lg text-sm">Ndiara POS</Link>
-                                <Link href="https://accounts.paahibuspace.org" className="block px-4 py-2 hover:bg-gray-50 rounded-lg text-sm">Ndiara Accounts</Link>
-                                <Link href="https://sales.paahibuspace.org" className="block px-4 py-2 hover:bg-gray-50 rounded-lg text-sm">Ndiara Sales</Link>
-                                <Link href="https://hrm.paahibuspace.org" className="block px-4 py-2 hover:bg-gray-50 rounded-lg text-sm">Ndiara HRM</Link>
-                                <Link href="https://baabuh.paahibuspace.org" className="block px-4 py-2 hover:bg-gray-50 rounded-lg text-sm">Payments & Funding</Link>
+                                <Link href="https://ecommerce.paahibuspace.org" target="_blank" rel="noopener noreferrer" className="block px-4 py-2 hover:bg-gray-50 rounded-lg text-sm">Ndiara E-commerce</Link>
+                                <Link href="https://pos.paahibuspace.org" target="_blank" rel="noopener noreferrer" className="block px-4 py-2 hover:bg-gray-50 rounded-lg text-sm">Ndiara POS</Link>
+                                <Link href="https://accounts.paahibuspace.org" target="_blank" rel="noopener noreferrer" className="block px-4 py-2 hover:bg-gray-50 rounded-lg text-sm">Ndiara Accounts</Link>
+                                <Link href="https://sales.paahibuspace.org" target="_blank" rel="noopener noreferrer" className="block px-4 py-2 hover:bg-gray-50 rounded-lg text-sm">Ndiara Sales</Link>
+                                <Link href="https://hrm.paahibuspace.org" target="_blank" rel="noopener noreferrer" className="block px-4 py-2 hover:bg-gray-50 rounded-lg text-sm">Ndiara HRM</Link>
+                                <Link href="https://baabuh.paahibuspace.org" target="_blank" rel="noopener noreferrer" className="block px-4 py-2 hover:bg-gray-50 rounded-lg text-sm">Payments & Funding</Link>
 
                                 <div className="font-bold text-navy px-2 py-2 border-b pt-4">Learn</div>
-                                <Link href="https://academy.paahibuspace.org" className="block px-4 py-2 hover:bg-gray-50 rounded-lg text-sm">Academy</Link>
-                                <Link href="https://community.paahibuspace.org" className="block px-4 py-2 hover:bg-gray-50 rounded-lg text-sm">Community</Link>
+                                <Link href="https://academy.paahibuspace.org" target="_blank" rel="noopener noreferrer" className="block px-4 py-2 hover:bg-gray-50 rounded-lg text-sm">Academy</Link>
+                                <Link href="https://community.paahibuspace.org" target="_blank" rel="noopener noreferrer" className="block px-4 py-2 hover:bg-gray-50 rounded-lg text-sm">Community</Link>
                                 <Link href="#" className="block px-4 py-2 hover:bg-gray-50 rounded-lg text-sm">Blog</Link>
                                 <Link href="/faq" className="block px-4 py-2 hover:bg-gray-50 rounded-lg text-sm">FAQ</Link>
                             </div>
@@ -332,7 +332,7 @@ export function Header() {
                             <div className="flex flex-col gap-3 mt-4">
                                 <Button variant="outline" className="w-full justify-center">Log In</Button>
                                 <Button asChild className="w-full justify-center">
-                                    <Link href="https://accounts.paahibuspace.org">
+                                    <Link href="https://accounts.paahibuspace.org" target="_blank" rel="noopener noreferrer">
                                         Get Started
                                     </Link>
                                 </Button>
@@ -347,12 +347,17 @@ export function Header() {
 
 function MegaMenuItem({ icon: Icon, title, desc, href, variant = "primary" }: { icon: any, title: string, desc: string, href: string, variant?: "primary" | "secondary" }) {
     const isPrimary = variant === "primary";
+    const isExternal = href.startsWith('http');
     return (
         <li>
-            <Link href={href} className={cn(
-                "group flex items-start gap-3 p-2 rounded-lg transition-colors",
-                isPrimary ? "hover:bg-orange-50" : "hover:bg-indigo-50"
-            )}>
+            <Link
+                href={href}
+                target={isExternal ? "_blank" : undefined}
+                rel={isExternal ? "noopener noreferrer" : undefined}
+                className={cn(
+                    "group flex items-start gap-3 p-2 rounded-lg transition-colors",
+                    isPrimary ? "hover:bg-orange-50" : "hover:bg-indigo-50"
+                )}>
                 <div className={cn(
                     "mt-0.5 p-1.5 rounded-md transition-colors",
                     isPrimary

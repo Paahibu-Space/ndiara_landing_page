@@ -101,7 +101,7 @@ export function EcosystemMap() {
                                     ))}
                                 </ul>
                                 <Button asChild variant="link" className="p-0 h-auto text-primary font-bold">
-                                    <a href={activeData.link}>
+                                    <a href={activeData.link} target="_blank" rel="noopener noreferrer">
                                         Explore {activeData.label} <ArrowRight className="w-4 h-4 ml-1" />
                                     </a>
                                 </Button>

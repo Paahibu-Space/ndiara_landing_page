@@ -99,7 +99,7 @@ export function CTASection() {
                                 {card.description}
                             </p>
                             <Button asChild className="w-full rounded-full font-bold h-12" variant={i === 0 ? "default" : "outline"}>
-                                <a href={card.href} className="flex items-center justify-center gap-2">
+                                <a href={card.href} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2">
                                     {card.button_text} <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                                 </a>
                             </Button>
