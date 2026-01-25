@@ -15,6 +15,8 @@ import { FAQ } from "@/components/sections/FAQ";
 import { Multilingual } from "@/components/sections/Multilingual";
 import { DownloadApp } from "@/components/sections/DownloadApp";
 
+import { EcommerceShowcase } from "@/components/sections/EcommerceShowcase";
+
 export default function Home() {
   return (
     <div className="min-h-screen font-display">
@@ -22,6 +24,7 @@ export default function Home() {
       <main className="pt-20">
         <Hero />
         <FeatureCards />
+        <EcommerceShowcase />
         <ProblemSolution />
         <Timeline />
         <EcosystemMap />
