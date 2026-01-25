@@ -35,9 +35,7 @@ export function AcademyPreview() {
                         <Button className="bg-primary hover:bg-primary/90 text-white font-bold h-12 px-8">
                             Start Learning
                         </Button>
-                        <Button variant="outline" className="text-white border-white/20 hover:bg-white/10 h-12 px-8">
-                            View Catalog
-                        </Button>
+        
                     </div>
                 </div>
 

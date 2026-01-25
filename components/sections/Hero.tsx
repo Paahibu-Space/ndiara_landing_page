@@ -22,7 +22,7 @@ export function Hero() {
                         transition={{ duration: 0.5 }}
                         className="flex flex-col gap-4"
                     >
-                        <h1 className="font-display text-5xl font-extrabold leading-[1.1] tracking-tight text-navy sm:text-6xl md:text-7xl">
+                        <h1 className="font-display text-4xl font-extrabold leading-[1.1] tracking-tight text-navy sm:text-6xl md:text-7xl">
                             Revolutionizing <br />
                             <span className="text-primary block min-h-[1.1em]">
                                 <TypewriterEffect words={["African Business", "Business Growth", "Global Success"]} />

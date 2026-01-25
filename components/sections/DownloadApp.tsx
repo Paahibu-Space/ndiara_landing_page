@@ -12,11 +12,11 @@ export function DownloadApp() {
     return (
         <section className="py-24 bg-white dark:bg-[#150b18] overflow-hidden">
             <div className="max-w-7xl mx-auto px-4 md:px-8">
-                <div className="bg-background-light dark:bg-[#2d1b32] rounded-[3rem] p-8 md:p-16 flex flex-col md:flex-row items-center gap-12 relative overflow-hidden">
+                <div className="bg-background-light dark:bg-[#2d1b32] rounded-[2rem] md:rounded-[3rem] p-8 md:p-16 flex flex-col md:flex-row items-center gap-12 relative overflow-hidden">
 
                     {/* Content */}
                     <div className="w-full md:w-1/2 relative z-10">
-                        <h2 className="text-4xl md:text-5xl font-extrabold text-navy dark:text-white mb-6">
+                        <h2 className="text-3xl md:text-5xl font-extrabold text-navy dark:text-white mb-6">
                             Your Business in <br /> <span className="text-primary">Your Pocket.</span>
                         </h2>
                         <p className="text-lg text-slate-600 dark:text-slate-300 mb-8 max-w-md">
@@ -47,34 +47,35 @@ export function DownloadApp() {
                     </div>
 
                     {/* Phone Visuals */}
-                    <div className="w-full md:w-1/2 relative h-[400px] md:h-[500px] flex items-center justify-center">
-                        <motion.div
-                            initial={{ y: 100, rotate: -10 }}
-                            whileInView={{ y: 0, rotate: -6 }}
-                            viewport={{ once: true }}
-                            className="absolute z-10 w-[260px] h-[520px]"
-                        >
-                            
-                            <Image
-                                src="/images/pos-mockup.png"
-                                alt="Ndiara POS"
-                                fill
-                                className="object-cover"
-                            />
-                        </motion.div>
-                        <motion.div
-                            initial={{ y: 100, rotate: 10 }}
-                            whileInView={{ y: 0, rotate: 6 }}
-                            viewport={{ once: true }}
-                            className="absolute z-0 left-[60%] w-[260px] h-[520px] "
-                        >
-                            <Image
-                                src="/images/ecommerce-dashboard.png"
-                                alt="Ndiara Ecommerce Dashboard"
-                                fill
-                                className="object-cover"
-                            />
-                        </motion.div>
+                    <div className="w-full md:w-1/2 relative h-[450px] md:h-[500px] flex items-center justify-center">
+                        <div className="relative scale-[0.7] md:scale-100 origin-center transition-transform duration-300 w-full h-full flex items-center justify-center">
+                            <motion.div
+                                initial={{ y: 100, rotate: -10 }}
+                                whileInView={{ y: 0, rotate: -6 }}
+                                viewport={{ once: true }}
+                                className="absolute z-10 w-[260px] h-[520px] left-1/2 -ml-[130px] md:left-auto md:ml-0 md:right-[40%]"
+                            >
+                                <Image
+                                    src="/images/pos-mockup.png"
+                                    alt="Ndiara POS"
+                                    fill
+                                    className="object-cover"
+                                />
+                            </motion.div>
+                            <motion.div
+                                initial={{ y: 100, rotate: 10 }}
+                                whileInView={{ y: 0, rotate: 6 }}
+                                viewport={{ once: true }}
+                                className="absolute z-0 w-[260px] h-[520px] left-1/2 -ml-[80px] md:left-[60%] md:ml-0"
+                            >
+                                <Image
+                                    src="/images/ecommerce-dashboard.png"
+                                    alt="Ndiara Ecommerce Dashboard"
+                                    fill
+                                    className="object-cover"
+                                />
+                            </motion.div>
+                        </div>
                     </div>
                 </div>
             </div>

@@ -23,7 +23,7 @@ export function Multilingual() {
                 </p>
 
                 <div className="flex flex-wrap justify-center gap-6">
-                    {["English", "Français", "Kiswahili"].map((lang, i) => (
+                    {["English", "Français", "Kiswahili", "60+ Languages"].map((lang, i) => (
                         <motion.div
                             key={lang}
                             initial={{ opacity: 0, y: 20 }}

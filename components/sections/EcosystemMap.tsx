@@ -110,57 +110,66 @@ export function EcosystemMap() {
                     </div>
 
                     {/* Right Visual (Orbit Map) */}
-                    <div className="w-full lg:w-1/2 relative flex items-center justify-center">
-                        {/* Orbits */}
-                        <div className="absolute w-[500px] h-[500px] border border-slate-200 dark:border-slate-700 rounded-full opacity-50"></div>
-                        <div className="absolute w-[350px] h-[350px] border border-slate-200 dark:border-slate-700 rounded-full opacity-50"></div>
-                        <div className="absolute w-[200px] h-[200px] border border-slate-200 dark:border-slate-700 rounded-full opacity-50"></div>
+                    <div className="w-full lg:w-1/2 relative flex items-center justify-center h-[350px] lg:h-[600px] overflow-hidden">
 
-                        {/* Central Hub */}
-                        <div className="relative z-10 w-24 h-24 bg-navy rounded-full shadow-2xl flex items-center justify-center border-4 border-white dark:border-slate-800">
-                            <span className="text-white font-bold text-xl">Ndiara</span>
+                        {/* Scale wrapper to fit mobile screens */}
+                        <div className="relative scale-[0.6] sm:scale-75 md:scale-100 transition-transform duration-300">
+                            {/* Orbits */}
+                            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] border border-slate-200 dark:border-slate-700 rounded-full opacity-50"></div>
+                            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] h-[350px] border border-slate-200 dark:border-slate-700 rounded-full opacity-50"></div>
+                            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[200px] h-[200px] border border-slate-200 dark:border-slate-700 rounded-full opacity-50"></div>
+
+                            {/* Central Hub */}
+                            <div className="relative z-10 w-24 h-24 bg-navy rounded-full shadow-2xl flex items-center justify-center border-4 border-white dark:border-slate-800 mx-auto">
+                                <span className="text-white font-bold text-xl">Ndiara</span>
+                            </div>
+
+                            {/* Orbiting Elements (Centered absolutely) */}
+                            {/* Inner Ring */}
+                            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[200px] h-[200px] pointer-events-none">
+                                <motion.div
+                                    animate={{ rotate: 360 }}
+                                    transition={{ repeat: Infinity, duration: 20, ease: "linear" }}
+                                    className="w-full h-full"
+                                >
+                                    <div className="absolute -top-3 left-1/2 -ml-3 w-8 h-8 bg-white dark:bg-slate-800 rounded-full shadow-md flex items-center justify-center text-xs">
+                                        💰
+                                    </div>
+                                </motion.div>
+                            </div>
+
+                            {/* Middle Ring */}
+                            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] h-[350px] pointer-events-none">
+                                <motion.div
+                                    animate={{ rotate: -360 }}
+                                    transition={{ repeat: Infinity, duration: 25, ease: "linear" }}
+                                    className="w-full h-full"
+                                >
+                                    <div className="absolute top-1/2 -right-4 w-10 h-10 bg-white dark:bg-slate-800 rounded-full shadow-md flex items-center justify-center text-sm">
+                                        🎓
+                                    </div>
+                                    <div className="absolute top-1/2 -left-4 w-10 h-10 bg-white dark:bg-slate-800 rounded-full shadow-md flex items-center justify-center text-sm">
+                                        🤝
+                                    </div>
+                                </motion.div>
+                            </div>
+
+                            {/* Outer Ring */}
+                            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] pointer-events-none">
+                                <motion.div
+                                    animate={{ rotate: 360 }}
+                                    transition={{ repeat: Infinity, duration: 30, ease: "linear" }}
+                                    className="w-full h-full"
+                                >
+                                    <div className="absolute bottom-10 right-16 w-12 h-12 bg-white dark:bg-slate-800 rounded-full shadow-md flex items-center justify-center text-lg">
+                                        📊
+                                    </div>
+                                    <div className="absolute top-10 left-16 w-12 h-12 bg-white dark:bg-slate-800 rounded-full shadow-md flex items-center justify-center text-lg">
+                                        🚀
+                                    </div>
+                                </motion.div>
+                            </div>
                         </div>
-
-                        {/* Orbiting Elements (Simulated Positions) */}
-                        {/* Inner Ring */}
-                        <motion.div
-                            animate={{ rotate: 360 }}
-                            transition={{ repeat: Infinity, duration: 20, ease: "linear" }}
-                            className="absolute w-[200px] h-[200px]"
-                        >
-                            <div className="absolute -top-3 left-1/2 -ml-3 w-8 h-8 bg-white dark:bg-slate-800 rounded-full shadow-md flex items-center justify-center text-xs">
-                                💰
-                            </div>
-                        </motion.div>
-
-                        {/* Middle Ring */}
-                        <motion.div
-                            animate={{ rotate: -360 }}
-                            transition={{ repeat: Infinity, duration: 25, ease: "linear" }}
-                            className="absolute w-[350px] h-[350px]"
-                        >
-                            <div className="absolute top-1/2 -right-4 w-10 h-10 bg-white dark:bg-slate-800 rounded-full shadow-md flex items-center justify-center text-sm">
-                                🎓
-                            </div>
-                            <div className="absolute top-1/2 -left-4 w-10 h-10 bg-white dark:bg-slate-800 rounded-full shadow-md flex items-center justify-center text-sm">
-                                🤝
-                            </div>
-                        </motion.div>
-
-                        {/* Outer Ring */}
-                        <motion.div
-                            animate={{ rotate: 360 }}
-                            transition={{ repeat: Infinity, duration: 30, ease: "linear" }}
-                            className="absolute w-[500px] h-[500px]"
-                        >
-                            <div className="absolute bottom-10 right-16 w-12 h-12 bg-white dark:bg-slate-800 rounded-full shadow-md flex items-center justify-center text-lg">
-                                📊
-                            </div>
-                            <div className="absolute top-10 left-16 w-12 h-12 bg-white dark:bg-slate-800 rounded-full shadow-md flex items-center justify-center text-lg">
-                                🚀
-                            </div>
-                        </motion.div>
-
                     </div>
                 </div>
             </div>
