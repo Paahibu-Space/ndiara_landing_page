@@ -29,7 +29,7 @@ export function Hero() {
                             </span>
                         </h1>
                         <p className="max-w-xl text-lg leading-relaxed text-gray-600 sm:text-xl">
-                            Ndiara is <span className="text-primary font-bold">"Your Business Bestfriend"</span>, an innovative educational technology platform empowering African female entrepreneurs with the digital tools they need to succeed locally and globally.
+                            Ndiara is <span className="text-primary font-bold">"Your Business Best Friend"</span>, an innovative educational technology platform empowering African female entrepreneurs with the digital tools they need to succeed locally and globally.
                             Revolutionize your skills, manage your finances, and grow your network in one premium ecosystem.
                         </p>
                         

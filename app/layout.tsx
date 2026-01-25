@@ -11,7 +11,7 @@ const jakarta = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Ndiara - Your Business Bestfriend",
+  title: "Ndiara - Your Business Best Friend",
   description: "More than just an app—a movement for African women. Manage your finances, access funding, and grow your network in one premium ecosystem.",
 };
 
