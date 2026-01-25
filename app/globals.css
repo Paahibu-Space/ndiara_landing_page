@@ -1,0 +1,63 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --background: #f8f7f5;
+  --foreground: #1c140d;
+
+  /* Brand Colors */
+  --primary: #f6861e;
+  --navy: #272974;
+  --accent-cream: #f4ede7;
+  --background-light: #f8f7f5;
+  --background-dark: #221910;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  --color-primary: var(--primary);
+  --color-navy: var(--navy);
+  --color-accent-cream: var(--accent-cream);
+  --color-background-light: var(--background-light);
+  --color-background-dark: var(--background-dark);
+
+  --font-display: var(--font-jakarta);
+
+  --animate-accordion-down: accordion-down 0.2s ease-out;
+  --animate-accordion-up: accordion-up 0.2s ease-out;
+
+  @keyframes accordion-down {
+    from {
+      height: 0
+    }
+
+    to {
+      height: var(--radix-accordion-content-height)
+    }
+  }
+
+  @keyframes accordion-up {
+    from {
+      height: var(--radix-accordion-content-height)
+    }
+
+    to {
+      height: 0
+    }
+  }
+}
+
+.dark {
+  --background: #221910;
+  --foreground: #ffffff;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-jakarta), sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}

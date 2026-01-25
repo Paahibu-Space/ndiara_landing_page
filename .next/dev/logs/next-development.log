@@ -1,0 +1,78 @@
+[00:00:01.648] Server  LOG     ✓ Ready in 1222ms
+[00:00:04.604] Browser WARN    Please ensure that the container has a non-static position, like 'relative', 'fixed', or 'absolute' to ensure scroll offset is calculated correctly.
+[00:00:04.605] Browser WARN    Image with src "/images/logo.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:01:32.819] Server  LOG     ✓ Compiled in 1721ms
+[00:01:38.324] Server  LOG     ✓ Compiled in 292ms
+[00:02:01.669] Browser WARN    Please ensure that the container has a non-static position, like 'relative', 'fixed', or 'absolute' to ensure scroll offset is calculated correctly.
+[00:02:01.669] Browser WARN    Image with src "/images/logo.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:03:01.279] Server  LOG     ✓ Compiled in 363ms
+[00:03:01.376] Browser ERROR   uncaughtError: ReferenceError: ModeToggle is not defined
+[00:03:09.532] Server  WARN    ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[00:03:09.545] Server  LOG     ✓ Compiled in 116ms
+[00:03:11.614] Browser WARN    Please ensure that the container has a non-static position, like 'relative', 'fixed', or 'absolute' to ensure scroll offset is calculated correctly.
+[00:03:11.614] Browser WARN    Image with src "/images/logo.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:03:17.797] Server  LOG     ✓ Compiled in 83ms
+[00:03:32.923] Browser WARN    Please ensure that the container has a non-static position, like 'relative', 'fixed', or 'absolute' to ensure scroll offset is calculated correctly.
+[00:03:32.923] Browser WARN    Image with src "/images/logo.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:03:45.923] Server  LOG     ✓ Compiled in 99ms
+[00:05:36.713] Browser WARN    Image with src "/images/logo.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:05:36.713] Browser WARN    Please ensure that the container has a non-static position, like 'relative', 'fixed', or 'absolute' to ensure scroll offset is calculated correctly.
+[00:10:58.374] Server  LOG     ✓ Compiled in 240ms
+[00:11:04.678] Server  LOG     ✓ Compiled in 40ms
+[00:11:28.861] Server  LOG     ✓ Compiled in 99ms
+[00:11:30.395] Server  LOG     ✓ Compiled in 41ms
+[00:11:35.018] Server  LOG     ✓ Compiled in 46ms
+[00:11:53.132] Server  LOG     ✓ Compiled in 45ms
+[00:11:59.959] Server  LOG     ✓ Compiled in 38ms
+[00:12:46.912] Server  LOG     ✓ Compiled in 195ms
+[00:13:07.218] Server  LOG     ✓ Compiled in 113ms
+[00:13:11.119] Server  LOG     ✓ Compiled in 85ms
+[00:13:35.007] Server  LOG     ✓ Compiled in 100ms
+[00:21:26.957] Server  LOG     ✓ Compiled in 186ms
+[00:21:31.177] Server  LOG     ✓ Compiled in 85ms
+[00:23:18.256] Browser WARN    Please ensure that the container has a non-static position, like 'relative', 'fixed', or 'absolute' to ensure scroll offset is calculated correctly.
+[00:23:18.256] Browser WARN    Image with src "/images/logo.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:24:42.008] Server  LOG     ✓ Compiled in 96ms
+[00:24:42.109] Browser ERROR   ./components/sections/Hero.tsx:28:83
+Parsing ecmascript source code failed
+  26 |                             Revolutionizing <br />
+  27 |                             <span className="text-primary block min-h-[1.1em]">
+> 28 |                                 <TypewriterEffect words={["African Business", ", "Business Growth", "Global Success"]} />
+     |                                                                                   ^^^^^^^^
+  29 |                             </span>
+  30 |                         </h1>
+  31 |                         <p className="max-w-xl text-lg leading-relaxed text-gray-600 sm:text-xl">
+
+Expected '</', got 'Business'
+
+Import trace:
+  Server Component:
+    ./components/sections/Hero.tsx
+    ./app/page.tsx
+[00:24:44.210] Server  LOG     ✓ Compiled in 68ms
+[00:25:17.248] Server  LOG     ✓ Compiled in 76ms
+[00:25:28.268] Server  LOG     ✓ Compiled in 45ms
+[00:25:43.545] Server  LOG     ✓ Compiled in 85ms
+[00:25:44.761] Server  LOG     ✓ Compiled in 61ms
+[00:25:47.127] Server  LOG     ✓ Compiled in 115ms
+[00:25:49.373] Server  LOG     ✓ Compiled in 48ms
+[00:25:51.353] Server  LOG     ✓ Compiled in 42ms
+[00:25:51.459] Browser ERROR   ./components/sections/Hero.tsx:33:54
+Parsing ecmascript source code failed
+  31 |                         <p className="max-w-xl text-lg leading-relaxed text-gray-600 sm:text-xl">
+  32 |                             Ndiara is <span className="text-primary font-bold">"Your Business Bestfriend"</span>, an innovative educational technology platform empowering African female entrepreneurs with the digital tools they need to succeed locally and globally. <br
+> 33 |                             Revolutionize your skills, manage your finances, and grow your network in one premium ecosystem.
+     |                                                      ^
+  34 |                         </p>
+  35 |                         
+  36 |                     </motion.div>
+
+Expected '</', got ','
+
+Import trace:
+  Server Component:
+    ./components/sections/Hero.tsx
+    ./app/page.tsx
+[00:25:59.002] Server  LOG     ✓ Compiled in 164ms
+[00:28:07.068] Browser WARN    Please ensure that the container has a non-static position, like 'relative', 'fixed', or 'absolute' to ensure scroll offset is calculated correctly.
+[00:28:07.068] Browser WARN    Image with src "/images/logo.png" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
