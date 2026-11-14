@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { Header } from "@/components/layout/Header";
 import { Hero } from "@/components/sections/Hero";
 import { Footer } from "@/components/layout/Footer";
@@ -36,7 +35,6 @@ export default function Home() {
         <DownloadApp />
         <CTASection />
         <FAQ />
-        {/* Other sections will go here */}
       </main>
       <Footer />
     </div>

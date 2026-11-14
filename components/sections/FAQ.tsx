@@ -6,20 +6,8 @@ import { ChevronDown } from "lucide-react";
 
 const faqs = [
     {
-        q: "Is Ndiara free to join?",
-        a: 'Yes! We offer a "Seed" tier that gives you access to the community forum and basic resources completely free. Our premium "Growth" and "Harvest" tiers offer advanced tools, mentorship, and offline course access.',
-    },
-    {
-        q: "Can I access courses offline?",
-        a: "Absolutely. We understand internet connectivity can vary. All our premium courses can be downloaded within the mobile app for offline viewing, so you can learn anytime, anywhere.",
-    },
-    {
         q: "How does the community support work?",
         a: 'Our community is segmented by industry and growth stage. You\'ll be matched with a "Circle" of peers, and gain access to expert mentors who host weekly Q&A sessions and workshops.',
-    },
-    {
-        q: "Is my data secure?",
-        a: "Security is our priority. We are fully NDPR compliant and use bank-grade SSL encryption for all data transmission. Your business data is yours alone; we never sell it to third parties.",
     },
 ];
 

@@ -122,8 +122,8 @@ export function Header() {
                                                         Online & Retail
                                                     </h3>
                                                     <ul className="space-y-2">
-                                                        <MegaMenuItem icon={Store} title="Ndiara E-commerce" desc="Free Website Builder with Just a Click" href="https://ecommerce.paahibuspace.org" />
-                                                        <MegaMenuItem icon={Terminal} title="Ndiara POS" desc="Point of Sale system" href="https://pos.paahibuspace.org" />
+                                                        <MegaMenuItem icon={Store} title="Ndiara E-Commerce" desc="Free Website Builder with Just a Click" href="https://ndiara.shop/" />
+                                                        <MegaMenuItem icon={Terminal} title="Ndiara POS" desc="Point of Sale system" href="https://pos.ndiara.africa/" />
                                                     </ul>
                                                 </div>
                                                 {/* Col 2 */}
@@ -135,7 +135,7 @@ export function Header() {
                                                     <ul className="space-y-2">
                                                         <MegaMenuItem icon={Calculator} title="Ndiara Accounts" desc="Financial management" href="https://accounts.paahibuspace.org" />
                                                         <MegaMenuItem icon={TrendingUp} title="Ndiara Sales" desc="Drive revenue growth" href="https://sales.paahibuspace.org" />
-                                                        <MegaMenuItem icon={Users} title="Ndiara HRM" desc="Human relationships" href="https://hrm.paahibuspace.org" />
+                                                        <MegaMenuItem icon={Users} title="Ndiara HRM" desc="Human relationships" href="https://hrm.ndiara.africa/" />
                                                     </ul>
                                                 </div>
                                                 {/* Col 3 */}
@@ -221,29 +221,29 @@ export function Header() {
                                         <div className="bg-white rounded-xl shadow-2xl ring-1 ring-black/5 border-t-[3px] border-navy overflow-hidden">
                                             <div className="grid grid-cols-12 divide-x divide-gray-100">
                                                 {/* Col 1 */}
-                                                <div className="col-span-3 p-6">
+                                                <div className="col-span-4 p-6">
                                                     <h3 className="text-navy text-xs font-bold uppercase tracking-wider mb-4 flex items-center gap-2">
                                                         <GraduationCap className="w-4 h-4" />
                                                         Education
                                                     </h3>
                                                     <ul className="space-y-2">
-                                                        <MegaMenuItem icon={GraduationCap} title="Ndiara Academy" desc="Courses & Certifications" href="https://academy.paahibuspace.org" variant="secondary" />
+                                                        <MegaMenuItem icon={GraduationCap} title="Ndiara Academy" desc="Courses & Certifications" href="https://guubu.ndiara.africa/" variant="secondary" />
                                                         <MegaMenuItem icon={BookOpen} title="Blog" desc="Latest insights & news" href="#" variant="secondary" />
                                                     </ul>
                                                 </div>
                                                 {/* Col 2 */}
-                                                <div className="col-span-3 p-6">
+                                                <div className="col-span-4 p-6">
                                                     <h3 className="text-navy text-xs font-bold uppercase tracking-wider mb-4 flex items-center gap-2">
                                                         <Users className="w-4 h-4" />
                                                         Community
                                                     </h3>
                                                     <ul className="space-y-2">
-                                                        <MegaMenuItem icon={Network} title="Community" desc="Connect with peers" href="https://community.paahibuspace.org" />
+                                                        <MegaMenuItem icon={Network} title="Community" desc="Connect with peers" href="https://nhanga.ndiara.africa/" />
                                                         <MegaMenuItem icon={Lightbulb} title="Success Stories" desc="Get inspired by others" href="#" />
                                                     </ul>
                                                 </div>
                                                 {/* Col 3 */}
-                                                <div className="col-span-3 p-6">
+                                                <div className="col-span-4 p-6">
                                                     <h3 className="text-navy text-xs font-bold uppercase tracking-wider mb-4 flex items-center gap-2">
                                                         <HelpCircle className="w-4 h-4" />
                                                         Support
@@ -252,21 +252,6 @@ export function Header() {
                                                         <MegaMenuItem icon={MessageSquare} title="FAQ" desc="Common questions" href="/faq" variant="secondary" />
                                                         <MegaMenuItem icon={FileText} title="Help Center" desc="Guides & Tutorials" href="#" variant="secondary" />
                                                     </ul>
-                                                </div>
-                                                {/* Col 4 (Promo) */}
-                                                <div className="col-span-3 bg-indigo-50 p-6 relative overflow-hidden flex flex-col justify-between">
-                                                    <div className="absolute top-0 right-0 w-24 h-24 bg-indigo-100 rounded-bl-full opacity-50"></div>
-                                                    <div>
-                                                        <h4 className="text-lg font-bold text-navy mb-2 leading-tight">Join the Movement</h4>
-                                                        <p className="text-navy/70 text-xs leading-relaxed mb-4">
-                                                            Connect with over 10,000 African women entrepreneurs growing together.
-                                                        </p>
-                                                        <Button asChild variant="outline" className="w-full bg-white border-indigo-200 text-indigo-700 hover:bg-indigo-50">
-                                                            <Link href="https://community.paahibuspace.org" target="_blank" rel="noopener noreferrer">
-                                                                Join Community
-                                                            </Link>
-                                                        </Button>
-                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -313,16 +298,16 @@ export function Header() {
                         <div className="p-4 flex flex-col gap-4">
                             <div className="space-y-4">
                                 <div className="font-bold text-navy px-2 py-2 border-b">Business Solutions</div>
-                                <Link href="https://ecommerce.paahibuspace.org" target="_blank" rel="noopener noreferrer" className="block px-4 py-2 hover:bg-gray-50 rounded-lg text-sm">Ndiara E-commerce</Link>
-                                <Link href="https://pos.paahibuspace.org" target="_blank" rel="noopener noreferrer" className="block px-4 py-2 hover:bg-gray-50 rounded-lg text-sm">Ndiara POS</Link>
+                                <Link href="https://ndiara.shop/" target="_blank" rel="noopener noreferrer" className="block px-4 py-2 hover:bg-gray-50 rounded-lg text-sm">Ndiara E-Commerce</Link>
+                                <Link href="https://pos.ndiara.africa/" target="_blank" rel="noopener noreferrer" className="block px-4 py-2 hover:bg-gray-50 rounded-lg text-sm">Ndiara POS</Link>
                                 <Link href="https://accounts.paahibuspace.org" target="_blank" rel="noopener noreferrer" className="block px-4 py-2 hover:bg-gray-50 rounded-lg text-sm">Ndiara Accounts</Link>
                                 <Link href="https://sales.paahibuspace.org" target="_blank" rel="noopener noreferrer" className="block px-4 py-2 hover:bg-gray-50 rounded-lg text-sm">Ndiara Sales</Link>
-                                <Link href="https://hrm.paahibuspace.org" target="_blank" rel="noopener noreferrer" className="block px-4 py-2 hover:bg-gray-50 rounded-lg text-sm">Ndiara HRM</Link>
+                                <Link href="https://hrm.ndiara.africa/" target="_blank" rel="noopener noreferrer" className="block px-4 py-2 hover:bg-gray-50 rounded-lg text-sm">Ndiara HRM</Link>
                                 <Link href="https://baabuh.paahibuspace.org" target="_blank" rel="noopener noreferrer" className="block px-4 py-2 hover:bg-gray-50 rounded-lg text-sm">Payments & Funding</Link>
 
                                 <div className="font-bold text-navy px-2 py-2 border-b pt-4">Learn</div>
-                                <Link href="https://academy.paahibuspace.org" target="_blank" rel="noopener noreferrer" className="block px-4 py-2 hover:bg-gray-50 rounded-lg text-sm">Academy</Link>
-                                <Link href="https://community.paahibuspace.org" target="_blank" rel="noopener noreferrer" className="block px-4 py-2 hover:bg-gray-50 rounded-lg text-sm">Community</Link>
+                                <Link href="https://guubu.ndiara.africa/" target="_blank" rel="noopener noreferrer" className="block px-4 py-2 hover:bg-gray-50 rounded-lg text-sm">Academy</Link>
+                                <Link href="https://nhanga.ndiara.africa/" target="_blank" rel="noopener noreferrer" className="block px-4 py-2 hover:bg-gray-50 rounded-lg text-sm">Community</Link>
                                 <Link href="#" className="block px-4 py-2 hover:bg-gray-50 rounded-lg text-sm">Blog</Link>
                                 <Link href="/faq" className="block px-4 py-2 hover:bg-gray-50 rounded-lg text-sm">FAQ</Link>
                             </div>

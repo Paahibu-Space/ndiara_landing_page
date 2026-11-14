@@ -59,25 +59,6 @@ export default function FAQPage() {
                             viewport={{ once: true }}
                         >
                             <Accordion type="single" collapsible className="w-full space-y-4">
-                                <AccordionItem value="item-1" className="border border-gray-100 dark:border-gray-800 rounded-xl px-6 data-[state=open]:bg-gray-50/50 dark:data-[state=open]:bg-gray-800/50">
-                                    <AccordionTrigger className="text-lg font-bold text-navy dark:text-white hover:no-underline py-6">
-                                        Is Ndiara free to use?
-                                    </AccordionTrigger>
-                                    <AccordionContent className="text-slate-600 dark:text-slate-300 leading-relaxed pb-6 text-base">
-                                        <div className="flex items-start gap-4 p-4 bg-green-50 dark:bg-green-900/20 rounded-lg border border-green-100 dark:border-green-900/50">
-                                            <div className="p-2 bg-green-100 dark:bg-green-800 rounded-full shrink-0">
-                                                <span className="font-bold text-green-700 dark:text-green-300">Free</span>
-                                            </div>
-                                            <div>
-                                                <p className="font-bold text-green-800 dark:text-green-200 mb-1">Totally Free for Early Birds!</p>
-                                                <p className="text-green-700/80 dark:text-green-300/80 text-sm">
-                                                    Yes! Ndiara is currently totally free for all early bird users. Sign up now to lock in your access to our premium tools without paying a cent.
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </AccordionContent>
-                                </AccordionItem>
-
                                 <AccordionItem value="item-2" className="border border-gray-100 dark:border-gray-800 rounded-xl px-6">
                                     <AccordionTrigger className="text-lg font-bold text-navy dark:text-white hover:no-underline py-6">
                                         What is included in the Ndiara ecosystem?
@@ -93,15 +74,6 @@ export default function FAQPage() {
                                     </AccordionTrigger>
                                     <AccordionContent className="text-slate-600 dark:text-slate-300 leading-relaxed pb-6 text-base">
                                         Absolutely. Our E-commerce builder allows you to connect a custom domain (e.g., www.yourbusiness.com) to give your online store a professional look. We also provide free subdomains if you're just starting out.
-                                    </AccordionContent>
-                                </AccordionItem>
-
-                                <AccordionItem value="item-4" className="border border-gray-100 dark:border-gray-800 rounded-xl px-6">
-                                    <AccordionTrigger className="text-lg font-bold text-navy dark:text-white hover:no-underline py-6">
-                                        How secure is my business data?
-                                    </AccordionTrigger>
-                                    <AccordionContent className="text-slate-600 dark:text-slate-300 leading-relaxed pb-6 text-base">
-                                        Security is our top priority. We use bank-grade encryption for all financial transactions and data storage. Your business information is backed up daily and protected by industry-leading security protocols.
                                     </AccordionContent>
                                 </AccordionItem>
 

@@ -1,55 +1,44 @@
 "use client";
 
-import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { Users, Coins, GraduationCap, ArrowRight } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { motion } from "framer-motion";
+import { Users, Coins, GraduationCap, Briefcase, Store } from "lucide-react";
 
-const ecosystemTabs = [
+const ecosystemAreas = [
     {
-        id: "community",
-        label: "Community",
+        title: "Community — Connect & Collaborate",
         icon: Users,
         color: "bg-blue-500",
-        link: "https://community.paahibuspace.org",
-        content: {
-            title: "Connect & Collaborate",
-            desc: "Find partners, mentors, and friends who get it.",
-            features: ["Mentorship Circles", "Marketplace", "Events"],
-        },
+        desc: "Find your people. Access a supportive community of fellow entrepreneurs, share experiences, exchange ideas, and discover opportunities to collaborate, innovate, and grow together.",
     },
     {
-        id: "finance",
-        label: "Finance",
+        title: "Finance — Manage & Grow",
         icon: Coins,
         color: "bg-green-500",
-        link: "https://baabuh.paahibuspace.org",
-        content: {
-            title: "Fund Your Future",
-            desc: "Access capital and manage your cashflow with ease.",
-            features: ["Micro-loans", "Invoicing", "Expense Tracking"],
-        },
+        desc: "Build stronger financial management practices, keep track of business transactions, and access resources and opportunities that help you make informed decisions and transform your business finances.",
     },
     {
-        id: "education",
-        label: "Education",
+        title: "Education — Learn & Apply",
         icon: GraduationCap,
         color: "bg-primary",
-        link: "https://academy.paahibuspace.org",
-        content: {
-            title: "Learn & Grow",
-            desc: "Master new skills with our expert-led academy.",
-            features: ["Masterclasses", "Certifications", "Resources"],
-        },
+        desc: "Access practical business and digital learning resources designed around the realities of entrepreneurship. Build your skills, discover new approaches, and apply what you learn to innovate and grow your business.",
+    },
+    {
+        title: "Business Tools — Organise & Operate",
+        icon: Briefcase,
+        color: "bg-navy",
+        desc: "Make everyday business management easier. Access digital tools to manage sales, inventory, customers, finances, and operations, helping you work more efficiently and transform how you run your business.",
+    },
+    {
+        title: "Commerce — Reach & Sell",
+        icon: Store,
+        color: "bg-purple-500",
+        desc: "Take your business beyond its current reach. Build your online presence, showcase your products, connect with more customers, and access new markets and opportunities to grow your sales.",
     },
 ];
 
 export function EcosystemMap() {
-    const [activeTab, setActiveTab] = useState("education");
-    const activeData = ecosystemTabs.find((t) => t.id === activeTab)!;
-
     return (
-        <section className="py-20 bg-background-light dark:bg-background-dark overflow-hidden">
+        <section id="ecosystem" className="py-20 bg-background-light dark:bg-background-dark overflow-hidden scroll-mt-24">
             <div className="max-w-7xl mx-auto px-4 md:px-8">
                 <div className="flex flex-col lg:flex-row items-center gap-16">
                     {/* Left Content */}
@@ -59,58 +48,12 @@ export function EcosystemMap() {
                             <span className="text-primary">Infinite Possibilities.</span>
                         </h2>
                         <p className="text-lg text-slate-600 dark:text-slate-300 mb-8">
-                            Ndiara integrates every aspect of your business journey into one seamless platform. No more fragmented tools.
+                            Access the resources you need, innovate in how you run your business, and transform your entrepreneurial journey. Ndiara brings together the tools, knowledge, connections, and opportunities that help African women entrepreneurs start, manage, and grow their businesses.
                         </p>
-
-                        {/* Mobile/Tablet Tabs (Hidden on Desktop map view if we want, but let's keep them as controls) */}
-                        <div className="flex gap-4 mb-8">
-                            {ecosystemTabs.map((tab) => (
-                                <button
-                                    key={tab.id}
-                                    onClick={() => setActiveTab(tab.id)}
-                                    className={`flex items-center gap-2 px-4 py-2 rounded-full border transition-all ${activeTab === tab.id
-                                        ? "bg-navy text-white border-navy"
-                                        : "bg-white text-slate-600 border-slate-200 hover:border-navy/50"
-                                        }`}
-                                >
-                                    <tab.icon className="w-4 h-4" />
-                                    <span className="font-bold text-sm">{tab.label}</span>
-                                </button>
-                            ))}
-                        </div>
-
-                        <AnimatePresence mode="wait">
-                            <motion.div
-                                key={activeTab}
-                                initial={{ opacity: 0, x: -20 }}
-                                animate={{ opacity: 1, x: 0 }}
-                                exit={{ opacity: 0, x: 20 }}
-                                className="bg-white dark:bg-slate-800 p-8 rounded-2xl shadow-lg border border-slate-100 dark:border-slate-700"
-                            >
-                                <div className={`w-12 h-12 rounded-xl mb-4 flex items-center justify-center text-white shadow-lg ${activeData.color}`}>
-                                    <activeData.icon className="w-6 h-6" />
-                                </div>
-                                <h3 className="text-2xl font-bold text-navy dark:text-white mb-2">{activeData.content.title}</h3>
-                                <p className="text-slate-500 dark:text-slate-400 mb-6">{activeData.content.desc}</p>
-                                <ul className="space-y-3 mb-6">
-                                    {activeData.content.features.map((feat) => (
-                                        <li key={feat} className="flex items-center gap-2 text-sm font-semibold text-navy dark:text-slate-200">
-                                            <div className="w-1.5 h-1.5 rounded-full bg-primary"></div>
-                                            {feat}
-                                        </li>
-                                    ))}
-                                </ul>
-                                <Button asChild variant="link" className="p-0 h-auto text-primary font-bold">
-                                    <a href={activeData.link} target="_blank" rel="noopener noreferrer">
-                                        Explore {activeData.label} <ArrowRight className="w-4 h-4 ml-1" />
-                                    </a>
-                                </Button>
-                            </motion.div>
-                        </AnimatePresence>
                     </div>
 
                     {/* Right Visual (Orbit Map) */}
-                    <div className="w-full lg:w-1/2 relative flex items-center justify-center h-[350px] lg:h-[600px] overflow-hidden">
+                    <div className="w-full lg:w-1/2 relative flex items-center justify-center h-[350px] lg:h-[600px] overflow-hidden" aria-hidden="true">
 
                         {/* Scale wrapper to fit mobile screens */}
                         <div className="relative scale-[0.6] sm:scale-75 md:scale-100 transition-transform duration-300">
@@ -171,6 +114,26 @@ export function EcosystemMap() {
                             </div>
                         </div>
                     </div>
+                </div>
+
+                {/* Ecosystem areas */}
+                <div className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-6">
+                    {ecosystemAreas.map((area, i) => (
+                        <motion.div
+                            key={area.title}
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: i * 0.1 }}
+                            className={`bg-white dark:bg-slate-800 p-8 rounded-2xl shadow-lg border border-slate-100 dark:border-slate-700 lg:col-span-2 ${i === 3 ? "lg:col-start-2" : ""} ${i === 4 ? "md:col-span-2" : ""}`}
+                        >
+                            <div className={`w-12 h-12 rounded-xl mb-4 flex items-center justify-center text-white shadow-lg ${area.color}`} aria-hidden="true">
+                                <area.icon className="w-6 h-6" />
+                            </div>
+                            <h3 className="text-xl font-bold text-navy dark:text-white mb-2">{area.title}</h3>
+                            <p className="text-slate-500 dark:text-slate-400 leading-relaxed">{area.desc}</p>
+                        </motion.div>
+                    ))}
                 </div>
             </div>
         </section>

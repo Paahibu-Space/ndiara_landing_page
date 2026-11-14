@@ -34,18 +34,18 @@ export function Footer() {
                     <div>
                         <h4 className="font-bold mb-6 text-gray-900 dark:text-white">Solutions</h4>
                         <ul className="space-y-3 text-sm text-gray-500 dark:text-gray-400">
-                            <li><Link className="hover:text-primary transition-colors" href="https://ecommerce.paahibuspace.org" target="_blank" rel="noopener noreferrer">Ndiara E-commerce</Link></li>
-                            <li><Link className="hover:text-primary transition-colors" href="https://pos.paahibuspace.org" target="_blank" rel="noopener noreferrer">Ndiara POS</Link></li>
+                            <li><Link className="hover:text-primary transition-colors" href="https://ndiara.shop/" target="_blank" rel="noopener noreferrer">Ndiara E-Commerce</Link></li>
+                            <li><Link className="hover:text-primary transition-colors" href="https://pos.ndiara.africa/" target="_blank" rel="noopener noreferrer">Ndiara POS</Link></li>
                             <li><Link className="hover:text-primary transition-colors" href="https://accounts.paahibuspace.org" target="_blank" rel="noopener noreferrer">Ndiara Accounts</Link></li>
                             <li><Link className="hover:text-primary transition-colors" href="https://sales.paahibuspace.org" target="_blank" rel="noopener noreferrer">Ndiara Sales</Link></li>
-                            <li><Link className="hover:text-primary transition-colors" href="https://hrm.paahibuspace.org" target="_blank" rel="noopener noreferrer">Ndiara HRM</Link></li>
+                            <li><Link className="hover:text-primary transition-colors" href="https://hrm.ndiara.africa/" target="_blank" rel="noopener noreferrer">Ndiara HRM</Link></li>
                         </ul>
                     </div>
                     <div>
                         <h4 className="font-bold mb-6 text-gray-900 dark:text-white">Ecosystem</h4>
                         <ul className="space-y-3 text-sm text-gray-500 dark:text-gray-400">
-                            <li><Link className="hover:text-primary transition-colors" href="https://community.paahibuspace.org" target="_blank" rel="noopener noreferrer">Ndiara Community</Link></li>
-                            <li><Link className="hover:text-primary transition-colors" href="https://academy.paahibuspace.org" target="_blank" rel="noopener noreferrer">Ndiara Academy</Link></li>
+                            <li><Link className="hover:text-primary transition-colors" href="https://nhanga.ndiara.africa/" target="_blank" rel="noopener noreferrer">Ndiara Community</Link></li>
+                            <li><Link className="hover:text-primary transition-colors" href="https://guubu.ndiara.africa/" target="_blank" rel="noopener noreferrer">Ndiara Academy</Link></li>
                             <li><Link className="hover:text-primary transition-colors" href="#">Payments</Link></li>
                             <li><Link className="hover:text-primary transition-colors" href="https://baabuh.paahibuspace.org" target="_blank" rel="noopener noreferrer">Funding</Link></li>
                         </ul>
