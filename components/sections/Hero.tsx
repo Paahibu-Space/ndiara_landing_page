@@ -45,7 +45,7 @@ export function Hero() {
                         preload
                         fetchPriority="high"
                         sizes="(min-width: 1024px) 440px, 100vw"
-                        className="object-cover object-[38%_40%]"
+                        className="object-cover object-[80%_0%]"
                     />
                 </div>
             </div>

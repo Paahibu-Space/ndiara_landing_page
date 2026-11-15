@@ -18,8 +18,9 @@
   /* Brand */
   --primary: #f6861e;
   --primary-ink: #a84f08;
-  --navy: #272974;
+  --navy: #00194c;
   --navy-deep: #1e2060;
+  --navy-hover: #272974; /* button hover tint, as on the auth pages and GUUBU */
 
   /* Neutrals */
   --band: #f5f5f3;
@@ -41,6 +42,7 @@
   --color-primary-ink: var(--primary-ink);
   --color-navy: var(--navy);
   --color-navy-deep: var(--navy-deep);
+  --color-navy-hover: var(--navy-hover);
   --color-band: var(--band);
   --color-line: var(--line);
   --color-line-strong: var(--line-strong);

@@ -23,8 +23,8 @@ const features = [
         title: "Growth That Lasts",
         desc: "Build the skills, confidence, and business foundations to pursue new opportunities, make informed decisions, and create a business that can thrive over time.",
         image: "/images/paahibu/widib-woman-smiling-with-phone.jpg",
-        alt: "A smiling woman entrepreneur holding her phone among fellow participants",
-        position: "50% 35%",
+        alt: "Two women in hijabs study a bound workbook together at a training table as another participant reads beside them",
+        position: "50% 50%",
     },
 ];
 

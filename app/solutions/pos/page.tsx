@@ -293,7 +293,7 @@ export default function PosPage() {
                     <div className="media aspect-[3/2] w-full lg:col-span-7">
                         <Image
                             src="/images/pages/pos-thinking-laughing-phones.jpg"
-                            alt="A trainer in a GROW t-shirt and an older woman entrepreneur in a red cap laugh together while using their smartphones"
+                            alt="A trainer in a GROW t-shirt laughs during a training session"
                             fill
                             sizes="(min-width: 1024px) 660px, 100vw"
                             className="object-cover object-[40%_40%]"

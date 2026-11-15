@@ -45,8 +45,8 @@ export const solutions: Record<SolutionSlug, Solution> = {
         area: { name: "Commerce", verbs: "Reach & Sell" },
         image: {
             src: "/images/pages/ecommerce-hero-woman-phone.jpg",
-            alt: "A smiling woman in a yellow print dress and white headwrap holds her phone during a training session",
-            position: "50% 30%",
+            alt: "A woman in a green hijab and glasses steadies her phone on a handheld camera rig during a training session",
+            position: "66% 50%",
         },
     },
     pos: {
