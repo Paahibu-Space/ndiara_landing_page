@@ -1,8 +1,4 @@
-"use client";
-
-import { motion } from "framer-motion";
 import { ArrowRight, Store, Terminal, Users, Calculator, GraduationCap, Network, Rocket } from "lucide-react";
-import { Button } from "@/components/ui/button";
 
 // Product copy is proposed in the content doc; the doc asks to verify which features are
 // live, in development or planned before publication.
@@ -17,7 +13,6 @@ const products = [
         ],
         icon: Store,
         items: ["Online Store Creation", "Product & Inventory Management", "Order Management"],
-        color: "bg-orange-50 text-primary",
         cta: "Explore E-Commerce",
         href: "https://ndiara.shop/",
     },
@@ -30,7 +25,6 @@ const products = [
         ],
         icon: Terminal,
         items: ["Sales Tracking", "Inventory Management", "Transaction Records"],
-        color: "bg-blue-50 text-blue-600",
         cta: "Explore Ndiara POS",
         href: "https://pos.ndiara.africa/",
     },
@@ -43,7 +37,6 @@ const products = [
         ],
         icon: Users,
         items: ["Employee Records", "Staff Management", "HR Administration"],
-        color: "bg-purple-50 text-purple-600",
         cta: "Explore Ndiara HRM",
         href: "https://hrm.ndiara.africa/",
     },
@@ -56,7 +49,6 @@ const products = [
         ],
         icon: Calculator,
         items: ["Income & Expense Tracking", "Financial Records", "Business Reporting"],
-        color: "bg-green-50 text-green-600",
         cta: "Explore Ndiara Accounts",
         // TODO(content): add the live Ndiara Accounts URL (none confirmed in the doc).
         href: "#",
@@ -70,7 +62,6 @@ const products = [
         ],
         icon: GraduationCap,
         items: ["Entrepreneurship Education", "Digital Business Skills", "Learning Resources"],
-        color: "bg-orange-50 text-primary",
         cta: "Explore Ndiara Academy",
         href: "https://guubu.ndiara.africa/",
     },
@@ -83,7 +74,6 @@ const products = [
         ],
         icon: Network,
         items: ["Entrepreneur Networking", "Knowledge Sharing", "Community Connections"],
-        color: "bg-blue-50 text-blue-600",
         cta: "Join the Community",
         href: "https://nhanga.ndiara.africa/",
     },
@@ -95,7 +85,6 @@ const products = [
         ],
         icon: Rocket,
         items: ["Business Growth Resources", "Funding Opportunity Information", "Entrepreneurial Support"],
-        color: "bg-purple-50 text-purple-600",
         cta: "Explore Opportunities",
         // TODO(content): add the Ndiara Growth & Opportunities destination URL (none confirmed in the doc).
         href: "#",
@@ -104,61 +93,59 @@ const products = [
 
 export function EverythingGrid() {
     return (
-        <section id="solutions" className="py-24 bg-white dark:bg-[#1f1022] scroll-mt-24">
-            <div className="max-w-7xl mx-auto px-4 md:px-8">
-                <div className="text-center mb-16">
-                    <h2 className="text-3xl md:text-5xl font-extrabold text-navy dark:text-white mb-6">
-                        Find the Right Tools for Your <span className="text-primary">Business</span>.
+        <section id="solutions" className="section bg-white scroll-mt-20">
+            <div className="wrap">
+                <div className="grid grid-cols-1 gap-8 lg:grid-cols-12 lg:gap-16">
+                    <h2 className="title-section lg:col-span-7">
+                        Find the Right Tools for Your <span>Business</span>.
                     </h2>
-                    <p className="text-lg text-slate-600 dark:text-slate-300 max-w-2xl mx-auto">
+                    <p className="lead lg:col-span-5 lg:col-start-8 lg:pt-3">
                         {"From your first sale to managing a growing business, explore Ndiara's digital solutions designed to help you work smarter, build your skills, and pursue new opportunities."}
                     </p>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div className="mt-16 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
                     {products.map((product, i) => {
                         const isExternal = product.href.startsWith("http");
+                        const isLast = i === products.length - 1;
                         return (
-                            <motion.div
+                            <article
                                 key={product.name}
-                                initial={{ opacity: 0, y: 20 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true }}
-                                transition={{ delay: (i % 3) * 0.1 }}
-                                className={`bg-background-light dark:bg-[#2d1b32] p-8 rounded-2xl border border-transparent hover:border-slate-200 dark:hover:border-slate-700 hover:shadow-lg transition-all flex flex-col ${i === products.length - 1 ? "md:col-span-2 md:w-1/2 md:justify-self-center lg:col-span-1 lg:w-auto lg:col-start-2" : ""}`}
+                                className={`card flex flex-col p-8 ${isLast ? "md:col-span-2 lg:col-span-3 lg:grid lg:grid-cols-3 lg:gap-x-12" : ""}`}
                             >
-                                <div className={`w-14 h-14 rounded-xl ${product.color} flex items-center justify-center mb-6`} aria-hidden="true">
-                                    <product.icon className="w-7 h-7" />
+                                <div className={isLast ? "flex flex-col" : "contents"}>
+                                    <product.icon className="mb-6 w-7 h-7 text-primary" strokeWidth={1.75} aria-hidden="true" />
+                                    <span className="mb-2 block text-sm font-semibold text-primary-ink">
+                                        {product.name}
+                                    </span>
+                                    <h3 className="title-card mb-4">{product.heading}</h3>
                                 </div>
-                                <span className="text-primary font-bold tracking-wider text-xs mb-2 block">
-                                    {product.name}
-                                </span>
-                                <h3 className="text-xl font-bold text-navy dark:text-white mb-3">{product.heading}</h3>
-                                <div className="flex flex-col gap-2 mb-5">
+                                <div className={`mb-6 flex flex-col gap-2 ${isLast ? "lg:pt-[60px]" : ""}`}>
                                     {product.body.map((para) => (
-                                        <p key={para} className="text-sm text-slate-500 dark:text-slate-400 leading-relaxed">
+                                        <p key={para} className="text-[15px] leading-relaxed text-muted">
                                             {para}
                                         </p>
                                     ))}
                                 </div>
-                                <ul className="space-y-3 mb-8">
-                                    {product.items.map((item) => (
-                                        <li key={item} className="flex items-center gap-2 text-sm text-slate-600 dark:text-slate-300">
-                                            <div className="w-1.5 h-1.5 rounded-full bg-slate-400" aria-hidden="true"></div>
-                                            {item}
-                                        </li>
-                                    ))}
-                                </ul>
-                                <Button asChild variant="link" className="mt-auto p-0 h-auto justify-start text-primary font-bold">
+                                <div className={`flex flex-1 flex-col ${isLast ? "lg:pt-[60px]" : ""}`}>
+                                    <ul className="mb-8 flex flex-col gap-2">
+                                        {product.items.map((item) => (
+                                            <li key={item} className="flex items-center gap-3 text-[15px] font-medium text-navy">
+                                                <span className="size-1.5 shrink-0 rounded-full bg-primary" aria-hidden="true"></span>
+                                                {item}
+                                            </li>
+                                        ))}
+                                    </ul>
                                     <a
                                         href={product.href}
                                         target={isExternal ? "_blank" : undefined}
                                         rel={isExternal ? "noopener noreferrer" : undefined}
+                                        className="text-link mt-auto min-h-11 self-start"
                                     >
-                                        {product.cta} <ArrowRight className="w-4 h-4 ml-1" aria-hidden="true" />
+                                        {product.cta} <ArrowRight className="w-4 h-4" aria-hidden="true" />
                                     </a>
-                                </Button>
-                            </motion.div>
+                                </div>
+                            </article>
                         );
                     })}
                 </div>

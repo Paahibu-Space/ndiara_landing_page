@@ -1,38 +1,11 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useId, useRef, type ReactNode } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import {
-    ChevronDown,
-    Briefcase,
-    Store,
-    CreditCard,
-    Terminal,
-    GraduationCap,
-    Presentation,
-    Bot,
-    Medal,
-    Users,
-    Network,
-    HeartHandshake,
-    Coins,
-    Rocket,
-    Zap,
-    ArrowRight,
-    Menu,
-    X,
-    Info,
-    Calculator,
-    TrendingUp,
-    BookOpen,
-    HelpCircle,
-    FileText,
-    MessageSquare,
-    Lightbulb,
-} from "lucide-react";
+import { ChevronDown, Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 export function Header() {
@@ -60,14 +33,12 @@ export function Header() {
     return (
         <header
             className={cn(
-                "fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b",
-                isScrolled
-                    ? "bg-white/80 backdrop-blur-md border-gray-200 shadow-sm py-2"
-                    : "bg-white border-[#f4ede7] py-4"
+                "fixed top-0 left-0 right-0 z-50 bg-white transition-shadow duration-200",
+                isScrolled ? "shadow-[0_6px_20px_-12px_rgba(20,20,40,0.18)]" : "shadow-none"
             )}
         >
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="flex justify-between items-center h-12">
+            <div className="wrap">
+                <div className="flex justify-between items-center h-20">
                     {/* Logo */}
                     <Link href="/" className="flex items-center gap-2 group">
                         <div className="relative size-8 text-primary shrink-0">
@@ -78,190 +49,77 @@ export function Header() {
                                 className="object-contain"
                             />
                         </div>
-                        <span className="text-xl font-bold tracking-tight text-navy">
+                        <span className="font-display pt-[0.14em] text-[2rem] font-medium leading-none tracking-[0.01em] text-navy">
                             Ndiara
                         </span>
                     </Link>
 
                     {/* Desktop Nav */}
-                    <nav className="hidden md:flex items-center gap-8">
+                    <nav className="hidden md:flex items-center gap-8 h-full">
                         {/* Business Solutions Menu */}
-                        <div
-                            className="group"
-                            onMouseEnter={() => setActiveMegaMenu("business")}
-                            onMouseLeave={() => setActiveMegaMenu(null)}
+                        <NavDropdown
+                            id="business"
+                            label="Business Solutions"
+                            activeMenu={activeMegaMenu}
+                            setActiveMenu={setActiveMegaMenu}
+                            panelWidth="w-[min(640px,calc(100vw-40px))]"
                         >
-                            <button
-                                aria-expanded={activeMegaMenu === "business"}
-                                className="flex items-center gap-1 text-primary font-semibold text-sm leading-normal focus:outline-none py-2"
-                            >
-                                Business Solutions
-                                <ChevronDown
-                                    className={cn(
-                                        "w-4 h-4 transition-transform duration-200",
-                                        activeMegaMenu === "business" ? "rotate-180" : ""
-                                    )}
-                                />
-                            </button>
-
-                            <AnimatePresence>
-                                {activeMegaMenu === "business" && (
-                                    <motion.div
-                                        initial={{ opacity: 0, y: 10 }}
-                                        animate={{ opacity: 1, y: 0 }}
-                                        exit={{ opacity: 0, y: 10 }}
-                                        transition={{ duration: 0.2 }}
-                                        className="absolute top-full left-1/2 -translate-x-1/2 w-[900px] pt-4"
-                                    >
-                                        <div className="bg-white rounded-xl shadow-2xl ring-1 ring-black/5 border-t-[3px] border-navy overflow-hidden">
-                                            <div className="grid grid-cols-12 divide-x divide-gray-100">
-                                                {/* Col 1 */}
-                                                <div className="col-span-3 p-6">
-                                                    <h3 className="text-navy text-xs font-bold uppercase tracking-wider mb-4 flex items-center gap-2">
-                                                        <Store className="w-4 h-4" />
-                                                        Online & Retail
-                                                    </h3>
-                                                    <ul className="space-y-2">
-                                                        <MegaMenuItem icon={Store} title="Ndiara E-Commerce" desc="Free Website Builder with Just a Click" href="https://ndiara.shop/" />
-                                                        <MegaMenuItem icon={Terminal} title="Ndiara POS" desc="Point of Sale system" href="https://pos.ndiara.africa/" />
-                                                    </ul>
-                                                </div>
-                                                {/* Col 2 */}
-                                                <div className="col-span-3 p-6">
-                                                    <h3 className="text-navy text-xs font-bold uppercase tracking-wider mb-4 flex items-center gap-2">
-                                                        <Briefcase className="w-4 h-4" />
-                                                        Operations
-                                                    </h3>
-                                                    <ul className="space-y-2">
-                                                        <MegaMenuItem icon={Calculator} title="Ndiara Accounts" desc="Financial management" href="https://accounts.paahibuspace.org" />
-                                                        <MegaMenuItem icon={TrendingUp} title="Ndiara Sales" desc="Drive revenue growth" href="https://sales.paahibuspace.org" />
-                                                        <MegaMenuItem icon={Users} title="Ndiara HRM" desc="Human relationships" href="https://hrm.ndiara.africa/" />
-                                                    </ul>
-                                                </div>
-                                                {/* Col 3 */}
-                                                <div className="col-span-3 p-6">
-                                                    <h3 className="text-navy text-xs font-bold uppercase tracking-wider mb-4 flex items-center gap-2">
-                                                        <Coins className="w-4 h-4" />
-                                                        Finance
-                                                    </h3>
-                                                    <ul className="space-y-2">
-                                                        <MegaMenuItem icon={CreditCard} title="Payments" desc="Secure transactions" href="#" />
-                                                        <MegaMenuItem icon={Coins} title="Funding" desc="Get capital" href="https://baabuh.paahibuspace.org" />
-                                                    </ul>
-                                                </div>
-                                                {/* Col 4 (Promo) */}
-                                                <div className="col-span-3 bg-gradient-to-br from-[#fcfaf8] to-white p-6 relative overflow-hidden flex flex-col justify-between">
-                                                    <Rocket className="absolute -top-4 -right-4 w-40 h-40 text-primary opacity-5 rotate-12" />
-                                                    <div>
-                                                        <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-primary/10 text-primary text-[10px] font-bold uppercase tracking-wide mb-3">
-                                                            <Zap className="w-3 h-3" /> New Feature
-                                                        </div>
-                                                        <h4 className="text-lg font-bold text-gray-900 mb-2 leading-tight">Launch your AI Assistant</h4>
-                                                        <p className="text-gray-600 text-xs leading-relaxed mb-4">
-                                                            Automate your customer support 24/7.
-                                                        </p>
-                                                    </div>
-                                                    <div className="bg-primary rounded-xl p-4 text-white shadow-lg shadow-primary/20 cursor-pointer group/card hover:bg-primary/90 transition-colors">
-                                                        <div className="flex items-center justify-between mb-2">
-                                                            <span className="font-bold text-xs">Get Early Access</span>
-                                                            <ArrowRight className="w-4 h-4 group-hover/card:translate-x-1 transition-transform" />
-                                                        </div>
-                                                        <div className="h-1.5 w-full bg-white/20 rounded-full overflow-hidden">
-                                                            <div className="h-full w-2/3 bg-white rounded-full"></div>
-                                                        </div>
-                                                        <p className="text-[10px] mt-2 opacity-90">Spots filling fast</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            {/* Bottom strip */}
-                                            <div className="bg-gray-50 px-6 py-3 flex items-center justify-between border-t border-gray-100">
-                                                <div className="flex items-center gap-2 text-xs text-gray-500">
-                                                    <Info className="w-4 h-4" />
-                                                    Need help deciding? Check our solution finder.
-                                                </div>
-                                                <Link href="#" className="text-xs font-semibold text-navy hover:text-primary transition-colors flex items-center gap-1">
-                                                    View all solutions
-                                                    <ArrowRight className="w-3 h-3" />
-                                                </Link>
-                                            </div>
-                                        </div>
-                                    </motion.div>
-                                )}
-                            </AnimatePresence>
-                        </div>
+                            <div className="grid grid-cols-3 gap-8 px-8 pt-7 pb-6">
+                                <MenuGroup title="Online & Retail">
+                                    <MegaMenuItem title="Ndiara E-Commerce" desc="Free Website Builder with Just a Click" href="/solutions/ecommerce" />
+                                    <MegaMenuItem title="Ndiara POS" desc="Point of Sale system" href="/solutions/pos" />
+                                </MenuGroup>
+                                <MenuGroup title="Operations">
+                                    <MegaMenuItem title="Ndiara HRM" desc="Human relationships" href="/solutions/hrm" />
+                                </MenuGroup>
+                                {/* Promo note: text only, no icons */}
+                                <div>
+                                    <p className="text-muted text-xs font-semibold uppercase tracking-[0.06em] mb-3">New Feature</p>
+                                    <p className="text-[15px] font-semibold text-navy leading-snug mb-1">Launch your AI Assistant</p>
+                                    <p className="text-muted text-[13px] leading-snug mb-4">
+                                        Automate your customer support 24/7.
+                                    </p>
+                                    <p className="text-sm font-semibold text-navy">Get Early Access</p>
+                                    <p className="text-muted text-xs mt-0.5">Spots filling fast</p>
+                                </div>
+                            </div>
+                            {/* Bottom strip */}
+                            <div className="bg-band px-8 py-3 flex items-center justify-between gap-6">
+                                <p className="text-sm text-muted">
+                                    Need help deciding? Check our solution finder.
+                                </p>
+                                <Link href="/solutions" className="text-link text-sm shrink-0">
+                                    View all solutions
+                                </Link>
+                            </div>
+                        </NavDropdown>
 
                         {/* Learn Menu */}
-                        <div
-                            className="group"
-                            onMouseEnter={() => setActiveMegaMenu("learn")}
-                            onMouseLeave={() => setActiveMegaMenu(null)}
+                        <NavDropdown
+                            id="learn"
+                            label="Learn"
+                            activeMenu={activeMegaMenu}
+                            setActiveMenu={setActiveMegaMenu}
+                            panelWidth="w-[min(600px,calc(100vw-40px))]"
                         >
-                            <button
-                                aria-expanded={activeMegaMenu === "learn"}
-                                className="flex items-center gap-1 text-navy hover:text-primary font-medium text-sm leading-normal focus:outline-none py-2 transition-colors"
-                            >
-                                Learn
-                                <ChevronDown
-                                    className={cn(
-                                        "w-4 h-4 transition-transform duration-200",
-                                        activeMegaMenu === "learn" ? "rotate-180" : ""
-                                    )}
-                                />
-                            </button>
+                            <div className="grid grid-cols-3 gap-8 px-8 pt-7 pb-7">
+                                <MenuGroup title="Education">
+                                    <MegaMenuItem title="Ndiara Academy" desc="Courses & Certifications" href="/solutions/academy" />
+                                    <MegaMenuItem title="Blog" desc="Latest insights & news" href="/blog" />
+                                </MenuGroup>
+                                <MenuGroup title="Community">
+                                    <MegaMenuItem title="Community" desc="Connect with peers" href="/solutions/community" />
+                                    <MegaMenuItem title="Success Stories" desc="Get inspired by others" href="/success-stories" />
+                                </MenuGroup>
+                                <MenuGroup title="Support">
+                                    <MegaMenuItem title="FAQ" desc="Common questions" href="/faq" />
+                                    <MegaMenuItem title="Help Center" desc="Guides & Tutorials" href="#" />
+                                </MenuGroup>
+                            </div>
+                        </NavDropdown>
 
-                            <AnimatePresence>
-                                {activeMegaMenu === "learn" && (
-                                    <motion.div
-                                        initial={{ opacity: 0, y: 10 }}
-                                        animate={{ opacity: 1, y: 0 }}
-                                        exit={{ opacity: 0, y: 10 }}
-                                        transition={{ duration: 0.2 }}
-                                        className="absolute top-full left-1/2 -translate-x-1/2 w-[900px] pt-4"
-                                    >
-                                        <div className="bg-white rounded-xl shadow-2xl ring-1 ring-black/5 border-t-[3px] border-navy overflow-hidden">
-                                            <div className="grid grid-cols-12 divide-x divide-gray-100">
-                                                {/* Col 1 */}
-                                                <div className="col-span-4 p-6">
-                                                    <h3 className="text-navy text-xs font-bold uppercase tracking-wider mb-4 flex items-center gap-2">
-                                                        <GraduationCap className="w-4 h-4" />
-                                                        Education
-                                                    </h3>
-                                                    <ul className="space-y-2">
-                                                        <MegaMenuItem icon={GraduationCap} title="Ndiara Academy" desc="Courses & Certifications" href="https://guubu.ndiara.africa/" variant="secondary" />
-                                                        <MegaMenuItem icon={BookOpen} title="Blog" desc="Latest insights & news" href="#" variant="secondary" />
-                                                    </ul>
-                                                </div>
-                                                {/* Col 2 */}
-                                                <div className="col-span-4 p-6">
-                                                    <h3 className="text-navy text-xs font-bold uppercase tracking-wider mb-4 flex items-center gap-2">
-                                                        <Users className="w-4 h-4" />
-                                                        Community
-                                                    </h3>
-                                                    <ul className="space-y-2">
-                                                        <MegaMenuItem icon={Network} title="Community" desc="Connect with peers" href="https://nhanga.ndiara.africa/" />
-                                                        <MegaMenuItem icon={Lightbulb} title="Success Stories" desc="Get inspired by others" href="#" />
-                                                    </ul>
-                                                </div>
-                                                {/* Col 3 */}
-                                                <div className="col-span-4 p-6">
-                                                    <h3 className="text-navy text-xs font-bold uppercase tracking-wider mb-4 flex items-center gap-2">
-                                                        <HelpCircle className="w-4 h-4" />
-                                                        Support
-                                                    </h3>
-                                                    <ul className="space-y-2">
-                                                        <MegaMenuItem icon={MessageSquare} title="FAQ" desc="Common questions" href="/faq" variant="secondary" />
-                                                        <MegaMenuItem icon={FileText} title="Help Center" desc="Guides & Tutorials" href="#" variant="secondary" />
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </motion.div>
-                                )}
-                            </AnimatePresence>
-                        </div>
-
-                        <Link href="#" className="text-navy hover:text-primary font-medium text-sm transition-colors">Resources</Link>
-                        <Link href="/about" className="text-navy hover:text-primary font-medium text-sm transition-colors">About Us</Link>
+                        <Link href="/blog" className="text-navy font-medium text-[15px] underline decoration-2 underline-offset-[10px] decoration-transparent hover:decoration-primary transition-colors">Resources</Link>
+                        <Link href="/about" className="text-navy font-medium text-[15px] underline decoration-2 underline-offset-[10px] decoration-transparent hover:decoration-primary transition-colors">About Us</Link>
                     </nav>
 
 
@@ -269,7 +127,7 @@ export function Header() {
                     {/* Auth Buttons */}
                     <div className="hidden lg:flex items-center gap-4">
                         {/* <Button variant="cream" className="text-navy font-bold">Log In</Button> */}
-                        <Button asChild className="font-bold shadow-lg shadow-primary/20">
+                        <Button asChild>
                             <Link href="">
                                 Get Started
                             </Link>
@@ -278,7 +136,9 @@ export function Header() {
 
                     {/* Mobile Menu Button */}
                     <button
-                        className="md:hidden p-2 text-navy"
+                        className="md:hidden -mr-2 inline-flex h-11 w-11 items-center justify-center text-navy"
+                        aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
+                        aria-expanded={isMobileMenuOpen}
                         onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                     >
                         {isMobileMenuOpen ? <X /> : <Menu />}
@@ -290,33 +150,31 @@ export function Header() {
             <AnimatePresence>
                 {isMobileMenuOpen && (
                     <motion.div
-                        initial={{ opacity: 0, height: 0 }}
-                        animate={{ opacity: 1, height: "100vh" }}
-                        exit={{ opacity: 0, height: 0 }}
-                        className="md:hidden absolute top-full left-0 right-0 bg-white border-t z-40 overflow-y-auto pb-20"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        transition={{ duration: 0.15 }}
+                        className="md:hidden absolute top-full left-0 right-0 h-[calc(100dvh-80px)] bg-white z-40 overflow-y-auto pb-20"
                     >
-                        <div className="p-4 flex flex-col gap-4">
-                            <div className="space-y-4">
-                                <div className="font-bold text-navy px-2 py-2 border-b">Business Solutions</div>
-                                <Link href="https://ndiara.shop/" target="_blank" rel="noopener noreferrer" className="block px-4 py-2 hover:bg-gray-50 rounded-lg text-sm">Ndiara E-Commerce</Link>
-                                <Link href="https://pos.ndiara.africa/" target="_blank" rel="noopener noreferrer" className="block px-4 py-2 hover:bg-gray-50 rounded-lg text-sm">Ndiara POS</Link>
-                                <Link href="https://accounts.paahibuspace.org" target="_blank" rel="noopener noreferrer" className="block px-4 py-2 hover:bg-gray-50 rounded-lg text-sm">Ndiara Accounts</Link>
-                                <Link href="https://sales.paahibuspace.org" target="_blank" rel="noopener noreferrer" className="block px-4 py-2 hover:bg-gray-50 rounded-lg text-sm">Ndiara Sales</Link>
-                                <Link href="https://hrm.ndiara.africa/" target="_blank" rel="noopener noreferrer" className="block px-4 py-2 hover:bg-gray-50 rounded-lg text-sm">Ndiara HRM</Link>
-                                <Link href="https://baabuh.paahibuspace.org" target="_blank" rel="noopener noreferrer" className="block px-4 py-2 hover:bg-gray-50 rounded-lg text-sm">Payments & Funding</Link>
+                        <div className="px-5 py-6 flex flex-col">
+                            <div className="flex flex-col">
+                                <div className="text-xs font-semibold uppercase tracking-[0.06em] text-primary-ink pb-2">Business Solutions</div>
+                                <Link href="/solutions/ecommerce" className="block py-2.5 text-base font-medium text-navy hover:text-primary-ink">Ndiara E-Commerce</Link>
+                                <Link href="/solutions/pos" className="block py-2.5 text-base font-medium text-navy hover:text-primary-ink">Ndiara POS</Link>
+                                <Link href="/solutions/hrm" className="block py-2.5 text-base font-medium text-navy hover:text-primary-ink">Ndiara HRM</Link>
 
-                                <div className="font-bold text-navy px-2 py-2 border-b pt-4">Learn</div>
-                                <Link href="https://guubu.ndiara.africa/" target="_blank" rel="noopener noreferrer" className="block px-4 py-2 hover:bg-gray-50 rounded-lg text-sm">Academy</Link>
-                                <Link href="https://nhanga.ndiara.africa/" target="_blank" rel="noopener noreferrer" className="block px-4 py-2 hover:bg-gray-50 rounded-lg text-sm">Community</Link>
-                                <Link href="#" className="block px-4 py-2 hover:bg-gray-50 rounded-lg text-sm">Blog</Link>
-                                <Link href="/faq" className="block px-4 py-2 hover:bg-gray-50 rounded-lg text-sm">FAQ</Link>
+                                <div className="text-xs font-semibold uppercase tracking-[0.06em] text-primary-ink pb-2 pt-8">Learn</div>
+                                <Link href="/solutions/academy" className="block py-2.5 text-base font-medium text-navy hover:text-primary-ink">Academy</Link>
+                                <Link href="/solutions/community" className="block py-2.5 text-base font-medium text-navy hover:text-primary-ink">Community</Link>
+                                <Link href="/blog" className="block py-2.5 text-base font-medium text-navy hover:text-primary-ink">Blog</Link>
+                                <Link href="/faq" className="block py-2.5 text-base font-medium text-navy hover:text-primary-ink">FAQ</Link>
                             </div>
-                            <Link href="#" className="p-2 font-medium text-navy border-b">Pricing</Link>
-                            <Link href="/about" className="p-2 font-medium text-navy border-b">About Us</Link>
+                            <Link href="#" className="mt-6 py-3 text-lg font-semibold text-navy">Pricing</Link>
+                            <Link href="/about" className="py-3 text-lg font-semibold text-navy">About Us</Link>
 
-                            <div className="flex flex-col gap-3 mt-4">
-                                <Button variant="outline" className="w-full justify-center">Log In</Button>
-                                <Button asChild className="w-full justify-center">
+                            <div className="flex flex-col gap-3 mt-8">
+                                <Button variant="outline" className="w-full">Log In</Button>
+                                <Button asChild className="w-full">
                                     <Link href="https://accounts.paahibuspace.org" target="_blank" rel="noopener noreferrer">
                                         Get Started
                                     </Link>
@@ -330,31 +188,111 @@ export function Header() {
     );
 }
 
-function MegaMenuItem({ icon: Icon, title, desc, href, variant = "primary" }: { icon: any, title: string, desc: string, href: string, variant?: "primary" | "secondary" }) {
-    const isPrimary = variant === "primary";
-    const isExternal = href.startsWith('http');
+type NavDropdownProps = {
+    id: string;
+    label: string;
+    activeMenu: string | null;
+    setActiveMenu: (id: string | null) => void;
+    panelWidth: string;
+    children: ReactNode;
+};
+
+/* A quiet dropdown: opens on hover or on click/Enter/Space, closes on Escape, mouse leave or when focus leaves it */
+function NavDropdown({ id, label, activeMenu, setActiveMenu, panelWidth, children }: NavDropdownProps) {
+    const isOpen = activeMenu === id;
+    const panelId = `${useId()}-${id}-menu`;
+    // True when a real mouse hover (not a touch tap's emulated hover) opened the panel,
+    // so the click that usually follows keeps it open instead of toggling it shut.
+    const openedByHover = useRef(false);
+    const canHover = () => typeof window !== "undefined" && window.matchMedia("(hover: hover)").matches;
+
+    return (
+        <div
+            className="h-full flex items-center"
+            onMouseEnter={() => {
+                if (!canHover()) return;
+                if (!isOpen) openedByHover.current = true;
+                setActiveMenu(id);
+            }}
+            onMouseLeave={() => {
+                if (!canHover()) return;
+                openedByHover.current = false;
+                setActiveMenu(null);
+            }}
+            onBlur={(e) => {
+                if (!e.currentTarget.contains(e.relatedTarget as Node | null)) setActiveMenu(null);
+            }}
+            onKeyDown={(e) => {
+                if (e.key === "Escape" && isOpen) {
+                    setActiveMenu(null);
+                    (e.currentTarget.querySelector("button") as HTMLButtonElement | null)?.focus();
+                }
+            }}
+        >
+            <button
+                type="button"
+                aria-expanded={isOpen}
+                aria-controls={isOpen ? panelId : undefined}
+                // Click, tap, Enter and Space toggle the panel; the first click after a mouse hover keeps it open
+                onClick={() => {
+                    if (openedByHover.current) {
+                        openedByHover.current = false;
+                        return;
+                    }
+                    setActiveMenu(isOpen ? null : id);
+                }}
+                className="flex items-center gap-1 text-navy font-medium text-[15px] leading-normal py-2 underline decoration-2 underline-offset-[10px] decoration-transparent hover:decoration-primary aria-expanded:decoration-primary transition-colors"
+            >
+                {label}
+                <ChevronDown
+                    className={cn("w-4 h-4 transition-transform duration-200", isOpen ? "rotate-180" : "")}
+                    aria-hidden="true"
+                />
+            </button>
+
+            <AnimatePresence>
+                {isOpen && (
+                    <motion.div
+                        id={panelId}
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        transition={{ duration: 0.12 }}
+                        className={cn("absolute top-full left-1/2 -translate-x-1/2 pt-px", panelWidth)}
+                    >
+                        <div className="bg-white shadow-[0_10px_24px_-14px_rgba(20,20,40,0.18)]">
+                            {children}
+                        </div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
+        </div>
+    );
+}
+
+function MenuGroup({ title, children }: { title: string; children: ReactNode }) {
+    return (
+        <div>
+            <h3 className="text-muted text-xs font-semibold uppercase tracking-[0.06em] mb-3 font-sans">{title}</h3>
+            <ul className="space-y-3">{children}</ul>
+        </div>
+    );
+}
+
+function MegaMenuItem({ title, desc, href }: { title: string; desc: string; href: string }) {
+    const isExternal = href.startsWith("http");
     return (
         <li>
             <Link
                 href={href}
                 target={isExternal ? "_blank" : undefined}
                 rel={isExternal ? "noopener noreferrer" : undefined}
-                className={cn(
-                    "group flex items-start gap-3 p-2 rounded-lg transition-colors",
-                    isPrimary ? "hover:bg-orange-50" : "hover:bg-indigo-50"
-                )}>
-                <div className={cn(
-                    "mt-0.5 p-1.5 rounded-md transition-colors",
-                    isPrimary
-                        ? "bg-primary/10 text-primary group-hover:bg-primary group-hover:text-white"
-                        : "bg-navy/10 text-navy group-hover:bg-navy group-hover:text-white"
-                )}>
-                    <Icon className="w-5 h-5" />
-                </div>
-                <div>
-                    <p className="text-gray-900 font-semibold text-sm">{title}</p>
-                    <p className="text-gray-500 text-xs mt-0.5">{desc}</p>
-                </div>
+                className="group block"
+            >
+                <span className="block text-navy font-semibold text-sm underline decoration-2 underline-offset-4 decoration-transparent transition-colors group-hover:decoration-primary group-focus-visible:decoration-primary">
+                    {title}
+                </span>
+                <span className="block text-muted text-[13px] mt-0.5 leading-snug">{desc}</span>
             </Link>
         </li>
     );

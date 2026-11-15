@@ -15,55 +15,62 @@ export function FAQ() {
     const [openIndex, setOpenIndex] = useState<number | null>(0);
 
     return (
-        <section className="py-20 bg-white dark:bg-[#150b18]">
-            <div className="max-w-3xl mx-auto px-4">
-                <div className="text-center mb-12">
-                    <h2 className="text-3xl md:text-4xl font-bold mb-4 text-navy dark:text-white">
+        <section className="section bg-white">
+            <div className="wrap grid grid-cols-1 gap-10 lg:grid-cols-12 lg:gap-16">
+                <div className="lg:col-span-5">
+                    <h2 className="title-section mb-6">
                         Frequently Asked Questions
                     </h2>
-                    <p className="text-gray-500 dark:text-gray-400">
+                    <p className="lead">
                         Everything you need to know about the product and billing.
                     </p>
                 </div>
-                <div className="flex flex-col gap-4">
-                    {faqs.map((faq, i) => (
-                        <div
-                            key={i}
-                            className={`rounded-2xl border transition-all duration-200 ${openIndex === i
-                                    ? "bg-white dark:bg-[#2d1b32] border-primary/20 shadow-lg"
-                                    : "bg-background-light dark:bg-[#1f1022] border-transparent"
-                                }`}
-                        >
-                            <button
-                                onClick={() => setOpenIndex(openIndex === i ? null : i)}
-                                className="flex w-full items-center justify-between p-5 text-left font-medium outline-none"
-                            >
-                                <span className={`text-lg font-semibold transition-colors ${openIndex === i ? "text-primary" : "text-navy dark:text-white"}`}>
-                                    {faq.q}
-                                </span>
-                                <div
-                                    className={`rounded-full p-1 transition-all duration-300 ${openIndex === i ? "bg-primary text-white rotate-180" : "bg-white dark:bg-white/5 text-gray-400"
-                                        }`}
-                                >
-                                    <ChevronDown className="w-5 h-5" />
-                                </div>
-                            </button>
-                            <AnimatePresence>
-                                {openIndex === i && (
-                                    <motion.div
-                                        initial={{ height: 0, opacity: 0 }}
-                                        animate={{ height: "auto", opacity: 1 }}
-                                        exit={{ height: 0, opacity: 0 }}
-                                        className="overflow-hidden"
+                <div className="flex flex-col gap-3 lg:col-span-7">
+                    {faqs.map((faq, i) => {
+                        const isOpen = openIndex === i;
+                        return (
+                            <div key={i} className="card px-6 md:px-8">
+                                <h3>
+                                    <button
+                                        type="button"
+                                        aria-expanded={isOpen}
+                                        aria-controls={`faq-panel-${i}`}
+                                        id={`faq-trigger-${i}`}
+                                        onClick={() => setOpenIndex(isOpen ? null : i)}
+                                        className="flex w-full items-center justify-between gap-6 py-6 text-left"
                                     >
-                                        <div className="px-5 pb-5 pt-0 text-gray-600 dark:text-gray-300 leading-relaxed">
-                                            {faq.a}
-                                        </div>
-                                    </motion.div>
-                                )}
-                            </AnimatePresence>
-                        </div>
-                    ))}
+                                        <span className="text-lg font-medium text-navy">
+                                            {faq.q}
+                                        </span>
+                                        <span
+                                            className={`inline-flex size-9 shrink-0 items-center justify-center text-navy transition-transform duration-200 ${isOpen ? "rotate-180" : ""}`}
+                                            aria-hidden="true"
+                                        >
+                                            <ChevronDown className="w-5 h-5" />
+                                        </span>
+                                    </button>
+                                </h3>
+                                <AnimatePresence initial={false}>
+                                    {isOpen && (
+                                        <motion.div
+                                            id={`faq-panel-${i}`}
+                                            role="region"
+                                            aria-labelledby={`faq-trigger-${i}`}
+                                            initial={{ height: 0, opacity: 0 }}
+                                            animate={{ height: "auto", opacity: 1 }}
+                                            exit={{ height: 0, opacity: 0 }}
+                                            transition={{ duration: 0.2 }}
+                                            className="overflow-hidden"
+                                        >
+                                            <div className="max-w-2xl pb-6 leading-relaxed text-muted">
+                                                {faq.a}
+                                            </div>
+                                        </motion.div>
+                                    )}
+                                </AnimatePresence>
+                            </div>
+                        );
+                    })}
                 </div>
             </div>
         </section>
