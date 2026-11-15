@@ -90,7 +90,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                         </div>
                         {post.cover && (
                             <div className="media mt-12 aspect-[4/3] w-full sm:aspect-[16/9] lg:aspect-[21/9]">
-                                <Image src={post.cover.src} alt={post.cover.alt} fill priority sizes="(min-width: 1200px) 1136px, 100vw" className="object-cover" />
+                                <Image src={post.cover.src} alt={post.cover.alt} fill preload fetchPriority="high" sizes="(min-width: 1200px) 1136px, 100vw" className="object-cover" />
                             </div>
                         )}
                     </div>

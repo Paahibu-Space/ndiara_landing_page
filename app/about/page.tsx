@@ -33,6 +33,8 @@ export default function AboutPage() {
                                 src="/images/paahibu/paahibu-youth-team-grow.jpg"
                                 alt="Three young Paahibu Space team members in GROW Network t-shirts smile outdoors under trees, one of them standing on crutches"
                                 fill
+                                preload
+                                fetchPriority="high"
                                 sizes="(min-width: 1200px) 1136px, 100vw"
                                 className="object-cover object-[50%_25%]"
                             />

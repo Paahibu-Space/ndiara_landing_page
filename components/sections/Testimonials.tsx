@@ -106,7 +106,7 @@ export function Testimonials() {
                             src={lead.src}
                             alt={lead.alt}
                             fill
-                            sizes="100vw"
+                            sizes="(min-width: 1024px) 1px, 100vw"
                             className="object-cover"
                             style={{ objectPosition: lead.position }}
                         />

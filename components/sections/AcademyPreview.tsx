@@ -109,7 +109,7 @@ export function AcademyPreview() {
                             src="/images/paahibu/widei-business-profile-lesson.jpg"
                             alt="A facilitator shows women entrepreneurs how to set up a business profile on a phone, with a whiteboard listing business name, location, description, catalogue, category and opening hours"
                             fill
-                            sizes="(min-width: 1024px) 840px, 100vw"
+                            sizes="(min-width: 1024px) 440px, 100vw"
                             className="object-cover object-[34%_50%]"
                         />
                     </div>

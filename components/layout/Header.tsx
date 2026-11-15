@@ -46,6 +46,7 @@ export function Header() {
                                 src="/images/logo.png"
                                 alt="Ndiara Logo"
                                 fill
+                                sizes="32px"
                                 className="object-contain"
                             />
                         </div>

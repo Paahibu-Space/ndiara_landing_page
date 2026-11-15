@@ -125,7 +125,8 @@ export default function PosPage() {
                                 src={s.image.src}
                                 alt={s.image.alt}
                                 fill
-                                priority
+                                preload
+                                fetchPriority="high"
                                 sizes="(min-width: 1024px) 460px, 100vw"
                                 className="object-cover"
                                 style={{ objectPosition: s.image.position }}

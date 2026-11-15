@@ -84,7 +84,8 @@ export default function SuccessStoriesPage() {
                                 src="/images/paahibu/grow-session-hands-raised.jpg"
                                 alt="Women raise their hands to answer a question during a GROW Network training session"
                                 fill
-                                priority
+                                preload
+                                fetchPriority="high"
                                 sizes="(min-width: 1200px) 1136px, 100vw"
                                 className="object-cover object-[50%_45%]"
                             />

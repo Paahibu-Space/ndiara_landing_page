@@ -42,8 +42,9 @@ export function Hero() {
                         src="/images/paahibu/grow-women-laughing-over-phones.jpg"
                         alt="A smiling woman in a GROW Network t-shirt compares phones during a training session"
                         fill
-                        priority
-                        sizes="(min-width: 1024px) 960px, 100vw"
+                        preload
+                        fetchPriority="high"
+                        sizes="(min-width: 1024px) 440px, 100vw"
                         className="object-cover object-[38%_40%]"
                     />
                 </div>

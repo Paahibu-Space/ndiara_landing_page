@@ -85,7 +85,8 @@ export default function AcademyPage() {
                     src={s.image.src}
                     alt={s.image.alt}
                     fill
-                    priority
+                    preload
+                    fetchPriority="high"
                     sizes="100vw"
                     className="-z-20 object-cover grayscale"
                     style={{ objectPosition: s.image.position }}
